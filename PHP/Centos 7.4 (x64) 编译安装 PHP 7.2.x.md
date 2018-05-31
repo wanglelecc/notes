@@ -1,5 +1,8 @@
 # Centos 7.4 (x64) 编译安装 PHP 7.2.x
 
+
+本教程是将PHP以PHP-FPM的方式安装，若想以其它形式安装，请查阅其它文档。
+
 ### 1.更新系统
 ```bash
 yum update
@@ -9,6 +12,7 @@ yum update
 ```bash
 yum -y install make cmake gcc gcc-c++ gcc-g77 flex bison file libtool libtool-libs autoconf kernel-devel patch wget crontabs libjpeg libjpeg-devel libpng libpng-devel libpng10 libpng10-devel gd gd-devel libxml2 libxml2-devel zlib zlib-devel glib2 glib2-devel unzip tar bzip2 bzip2-devel libzip-devel libevent libevent-devel ncurses ncurses-devel curl curl-devel libcurl libcurl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel vim-minimal gettext gettext-devel ncurses-devel gmp-devel pspell-devel unzip libcap diffutils ca-certificates net-tools libc-client-devel psmisc libXpm-devel git-core c-ares-devel libicu-devel libxslt libxslt-devel xz expat-devel libaio-devel rpcgen libtirpc-devel
 ```
+> 上述很多依赖的组件都是编译php扩展需要用到的，如果只是编译PHP，不附加扩展。则只需要安装很少的依赖即可。
 
 ## 路径约定：
 -  **源码包路径** ： /usr/local/src
@@ -278,3 +282,5 @@ service php-fpm start
 # 停止 php-fpm
 service php-fpm stop
 ```
+
+至此单纯的安装PHP就结束了，可以通过service 来管理 php-fpm 的启动。
